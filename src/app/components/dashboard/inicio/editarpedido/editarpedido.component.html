@@ -1,0 +1,25 @@
+<form [formGroup]="pedidoForm">
+    <mat-grid-list cols="2" rowHeight="70px" style="width: 800px;">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Mesero</mat-label>
+                <mat-select name="meseros" id="meseros" formControlName="mesero">
+                    <mat-option [value]="item" *ngFor="let item of meseros">{{item.nombre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Mesa</mat-label>
+                <mat-select name="mesas" id="mesas" formControlName="mesa">
+                    <mat-option [value]="item" *ngFor="let item of mesas">{{item.nombre}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div style="margin-left: 40%; margin-top: 20px;" >
+        <button mat-button mat-dialog-close>Cerrar</button>
+        <button mat-raised-button style="margin-left: 5%;" color="primary"
+            (click)="editarpedido()">Guardar</button>
+    </div>
+</form>

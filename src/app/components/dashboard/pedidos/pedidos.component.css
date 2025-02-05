@@ -1,0 +1,31 @@
+
+.example-spacer {
+    flex: 1 1 auto;
+  } 
+
+.tool{
+  position: absolute;
+  top: 94.9%;
+  transform: translateY(-50%);
+}
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.formularioRegistro{
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-top: 3%;
+}
+.ancho{
+  margin-top: 1%;
+  width: 50%;
+}
+table {
+  width: 100%;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}

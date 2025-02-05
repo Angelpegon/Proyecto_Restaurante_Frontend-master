@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+  } 
+
+
+  .tool{
+    position: absolute;
+    top: 94.8%;
+    transform: translateY(-50%);
+  }
+  

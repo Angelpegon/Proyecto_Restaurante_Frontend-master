@@ -1,0 +1,13 @@
+.ancho{
+  width: 80%;
+}
+table {
+  width: 100%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+} 
+
+.boton{
+  height: 50px;
+}

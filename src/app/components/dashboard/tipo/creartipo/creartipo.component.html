@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear Mesero</span>
+    </mat-toolbar>
+    <mat-card style="margin-top: 10px;">
+        <form [formGroup]="tipoForm" (ngSubmit)="guardar()">
+            <mat-grid-list cols="2" rowHeight="70px">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <mat-form-field class="ancho">
+                        <mat-label>Tipo De Pago</mat-label>
+                        <input matInput type="text" autocomplete="off" formControlName="nombre"  class="form-control">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <button mat-raised-button style="margin-right: 25%;" routerLink="/dashboard/tipo">Volver</button>
+                    <button mat-raised-button color="primary" type="submit" >Guardar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>

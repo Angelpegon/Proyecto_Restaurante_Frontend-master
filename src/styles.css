@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 5px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.formularioRegistro {
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-top: 3%;
+}
+
+.ancho {
+  margin-top: 1%;
+  width: 50%;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+table {
+  width: 100%;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.tool {
+  position: absolute;
+  top: 94.9%;
+  transform: translateY(-50%);
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

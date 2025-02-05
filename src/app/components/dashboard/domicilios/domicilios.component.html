@@ -1,0 +1,55 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Domicilios</span>
+    <div class="example-spacer"> </div>
+    <button mat-raised-button color="primary" routerLink="/dashboard/crearpedido">AGREGAR</button>
+  </mat-toolbar>
+  <table mat-table #table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> <strong>ID</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> <strong>Fecha</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombreCliente">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> <strong>Cliente</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.cliente.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="direccionCliente">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef> <strong>Direccion</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.cliente.direccion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="options">
+      <th mat-header-cell *matHeaderCellDef><strong>Opciones</strong> </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="example-button-container">
+          <button mat-mini-fab matTooltip="basic" color="blue" aria-label="Example icon button with a delete icon"
+            (click)="abrirDialogoVerPedido(element.id)">
+            <mat-icon>view_list </mat-icon>
+          </button>
+          <button mat-mini-fab matTooltip="Primary" color="warn" aria-label="Example icon button with a delete icon"
+            (click)="abrirDialogoCancelar(element.id)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+          <button mat-mini-fab matTooltip="Primary" color="primary" aria-label="Example icon button with a delete icon"
+            (click)="abrirDialogoFinalizarPedido(element.id)">
+            <mat-icon>done</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef><strong>Estado</strong></th>
+      <td mat-cell *matCellDef="let element"> <strong>{{element.estado.nombre}}</strong> </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>

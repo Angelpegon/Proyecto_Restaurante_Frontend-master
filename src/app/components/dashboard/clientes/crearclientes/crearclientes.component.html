@@ -1,0 +1,31 @@
+<h2 style="text-align: center;" mat-dialog-title>¡El usuario no existe!</h2>
+<form [formGroup]="clientesForm">
+    <mat-grid-list cols="2" rowHeight="60px" style="width: 800px;">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" autocomplete="off" formControlName="nombre" class="form-control" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Direccion</mat-label>
+                <input matInput type="text" autocomplete="off" formControlName="direccion" class="form-control"
+                    required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="2">
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Telefono</mat-label>
+                <input matInput type="text" autocomplete="off" formControlName="telefono" class="form-control" required>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <div mat-dialog-actions>
+                <button mat-button mat-dialog-close>Cerrar</button>
+                <button mat-raised-button mat-dialog-close cdkFocusInitial color="primary" type="submit"
+                    (click)="crearCliente()" [disabled]="clientesForm.invalid">Crear</button>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

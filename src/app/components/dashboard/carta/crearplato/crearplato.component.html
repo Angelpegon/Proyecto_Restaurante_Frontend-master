@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear Plato</span>
+    </mat-toolbar>
+    <mat-card style="margin-top: 10px;">
+        <form [formGroup]="personaForm" (ngSubmit)="guardar()">
+            <mat-grid-list cols="2" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="ancho">
+                        <mat-label>Plato</mat-label>
+                        <input matInput type="text" autocomplete="off" formControlName="nombre" class="form-control">
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                    <mat-form-field class="ancho">
+                        <mat-label>Valor</mat-label>
+                        <input matInput type="number" autocomplete="off" formControlName="valor" class="form-control">
+                    </mat-form-field>
+                </mat-grid-tile>
+                
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <button mat-raised-button style="margin-right: 25%;" routerLink="/dashboard/carta">Volver</button>
+                    <button mat-raised-button color="primary" type="submit" [disabled]="personaForm.invalid">Guardar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>
+

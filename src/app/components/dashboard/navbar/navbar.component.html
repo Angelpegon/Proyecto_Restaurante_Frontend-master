@@ -1,0 +1,66 @@
+<div class="contenedor-padre">
+    <mat-toolbar class="barra" color="primary">
+        <mat-toolbar-row>
+            <button (click)="cajon.toggle()" mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Restaurante</span>
+            <span class="example-spacer"></span>
+            <button mat-button style="margin: 5%;" routerLink="/dashboard">Pedidos</button>
+            <button mat-button style="margin: 5%;"routerLink="/dashboard/domicilios">Domicilios</button>
+            <button mat-button style="margin: 5%;"routerLink="/dashboard/reportes">Gastos</button>
+            <button mat-button style="margin: 5%;"  routerLink="/dashboard/reportes">Creditos</button>
+            <span class="example-spacer"></span>
+
+            <button routerLink="/login" mat-icon-button class="example-icon favorite-icon"
+                aria-label="Example icon-button with heart icon">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="contenido">
+        <mat-sidenav style="min-width: 300px;" #cajon mode="side" closed>
+            <mat-nav-list>
+                <a mat-list-item routerLink="/dashboard/carta">
+                    <mat-icon color="accent">add</mat-icon>
+                    Ver Carta
+                </a>
+                <a mat-list-item routerLink="/dashboard/mesero">
+                    <mat-icon color="primary">add</mat-icon>
+                    Ver Meseros
+                </a>
+                <a mat-list-item routerLink="/dashboard/tipo">
+                    <mat-icon color="red">add</mat-icon>
+                    Ver Medios de Pago
+                </a>
+                <a mat-list-item routerLink="/dashboard/pedidos">
+                    <mat-icon color="red">view_list</mat-icon>
+                    Ver Pedidos
+                </a>
+            </mat-nav-list>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Más
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <mat-nav-list>
+                        <a mat-list-item href='#'>
+                            Acerca de
+                        </a>
+                        <a mat-list-item href='#'>
+                            Ayuda
+                        </a>
+                    </mat-nav-list>
+                </mat-expansion-panel>
+
+            </mat-accordion>
+
+        </mat-sidenav>
+        <router-outlet></router-outlet>
+    </mat-sidenav-container>
+</div>
+

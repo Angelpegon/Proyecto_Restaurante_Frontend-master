@@ -1,0 +1,31 @@
+
+.add {
+    position: absolute;
+    top: 83%;
+    height: 48px;
+    left: 92%;
+    transform: translateY(-50%);
+    
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+  } 
+
+
+
+.formularioRegistro{
+  padding-left: 30%;
+  padding-right: 30%;
+  margin-top: 3%;
+}
+
+table {
+  width: 100%;
+  padding: 1%;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}

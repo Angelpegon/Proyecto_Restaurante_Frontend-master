@@ -1,0 +1,186 @@
+<div class="container">
+    <mat-toolbar>
+        <span>Crear Pedido</span>
+    </mat-toolbar>
+    <mat-card style="margin-top: 10px;">
+        <form [formGroup]="pedidoForm" >
+            <mat-grid-list cols="2" rowHeight="50px">
+                <mat-grid-tile [colspan]="2" [rowspan]="2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tipo de Pedido</mat-label>
+                        <mat-select name="tipodepedido" id="tipodepedido" formControlName="tipodepedido" required>
+                            <mat-option [value]="item" *ngFor="let item of tiposdepedidos">{{item.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Cliente
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click aqui...
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-grid-list cols="2" rowHeight="50px">
+                    <form [formGroup]="searchForm">
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Ingrese el telefono</mat-label>
+                                <input matInput type="text" autocomplete="off" formControlName="telefono"
+                                    class="form-control">
+                            </mat-form-field>
+                            <button mat-raised-button color="primary" style="margin-left: 10px; margin-bottom: 10px;"
+                                (click)="buscarClientes()">Buscar</button>
+                        </mat-grid-tile>
+                    </form>
+                </mat-grid-list>
+                <mat-grid-list cols="2" rowHeight="40px">
+                    <form [formGroup]="clientesForm">
+                        <mat-grid-tile [colspan]="1" [rowspan]="2">
+                            <mat-card appearance="fill" class="ancho">
+                                <strong>ID Cliente:</strong>
+                                <mat-card-content>
+                                    <input matInput formControlName="id" class="form-control">
+                                </mat-card-content>
+                            </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="2">
+                            <mat-card appearance="fill" class="ancho">
+                                <strong>Nombre Cliente:</strong>
+                                <mat-card-content>
+                                    <input matInput formControlName="nombre" class="form-control">
+                                </mat-card-content>
+                            </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="2">
+                            <mat-card appearance="fill" class="ancho">
+                                <strong>Direccion:</strong>
+                                <mat-card-content>
+                                    <input matInput formControlName="direccion" class="form-control">
+                                </mat-card-content>
+                            </mat-card>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="2">
+                            <mat-card appearance="fill" class="ancho">
+                                <strong>Telefono:</strong>
+                                <mat-card-content>
+                                    <input matInput formControlName="telefono" class="form-control">
+                                </mat-card-content>
+                            </mat-card>
+                        </mat-grid-tile>
+                    </form>
+                </mat-grid-list>
+            </mat-expansion-panel>
+
+            <mat-grid-list cols="2" rowHeight="50px">
+                <mat-grid-tile [colspan]="1" [rowspan]="2">
+                    <mat-form-field appearance="fill" >
+                        <mat-label>Mesero</mat-label>
+                        <mat-select name="meseros" id="meseros" formControlName="mesero">
+                            <mat-option [value]="item" *ngFor="let item of meseros">{{item.nombres}} {{item.apellidos}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="2">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Mesa</mat-label>
+                        <mat-select name="mesas" id="mesas" formControlName="mesa">
+                            <mat-option [value]="item" *ngFor="let item of mesas">{{item.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Agregar un producto
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click aqui...
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <form [formGroup]="platosxpedidoForm" (ngSubmit)="guardar()">
+                    <mat-grid-list cols="2" rowHeight="70px">
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                            <mat-form-field appearance="fill" class="ancho">
+                                <mat-label>Producto</mat-label>
+                                <mat-select name="plato" id="plato" formControlName="plato">
+                                    <mat-option [value]="item" *ngFor="let item of plato">{{item.nombre}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="1" [rowspan]="1">
+                            <mat-form-field appearance="fill" class="ancho">
+                                <mat-label>Cantidad</mat-label>
+                                <input matInput type="number" autocomplete="off" formControlName="cantidad"
+                                    class="form-control">
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="2">
+                            <mat-form-field appearance="fill" class="ancho">
+                                <mat-label>Nota</mat-label>
+                                <input matInput type="text" autocomplete="off" formControlName="nota"
+                                    class="form-control">
+                            </mat-form-field>
+                        </mat-grid-tile>
+                        <mat-grid-tile [colspan]="2" [rowspan]="1">
+                            <button mat-raised-button color="primary" type="submit"
+                                [disabled]="platosxpedidoForm.invalid">Agregar</button>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </form>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Productos Agregados</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> ID_Plato</th>
+                        <td mat-cell *matCellDef="let element"> {{element.plato.id}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="plato">
+                        <th mat-header-cell *matHeaderCellDef> Plato </th>
+                        <td mat-cell *matCellDef="let element"> {{element.plato.nombre}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="cantidad">
+                        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+                        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="nota">
+                        <th mat-header-cell *matHeaderCellDef> Nota </th>
+                        <td mat-cell *matCellDef="let element"> {{element.nota}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="opciones">
+                        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+                        <td mat-cell *matCellDef="let element; let i = index">
+                            <div class="example-button-container">
+                                <button mat-mini-fab color="basic" (click)="editarPlatoxPedido(element)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-mini-fab color="primary" (click)="eliminarPlatoxPedido(i)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </mat-expansion-panel>
+            <div style="margin-top: 10px; text-align: center;">
+                <button mat-raised-button style="margin-right: 25%;" routerLink="/dashboard">Volver</button>
+                <button mat-raised-button color="primary" type="submit" (click)="guardarpedido()"
+                    [disabled]="pedidoForm.invalid">Guardar</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
