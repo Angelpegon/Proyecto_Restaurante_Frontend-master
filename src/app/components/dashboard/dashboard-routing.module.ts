@@ -13,6 +13,7 @@ import { DomiciliosComponent } from './domicilios/domicilios.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { TipoComponent } from './tipo/tipo.component';
 import { CreartipoComponent } from './tipo/creartipo/creartipo.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 const routes: Routes = [
   {path:'',component: DashboardComponent,children:[
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path:'pedidos',component:PedidosComponent},
     {path:'tipo',component:TipoComponent},
     {path:'creartipo',component:CreartipoComponent},
+    {path:'estadisticas',component:EstadisticasComponent},
 
   ]}
 ];

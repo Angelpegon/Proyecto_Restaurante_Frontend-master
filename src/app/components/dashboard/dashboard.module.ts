@@ -25,6 +25,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { CrearclientesComponent } from './clientes/crearclientes/crearclientes.component';
 import { VerpedidodomicilioComponent } from './inicio/verpedido/verpedidodomicilio/verpedidodomicilio.component';
 import { VerpedidomesasComponent } from './inicio/verpedido/verpedidomesas/verpedidomesas.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 
 
@@ -52,7 +53,7 @@ import { VerpedidomesasComponent } from './inicio/verpedido/verpedidomesas/verpe
     CrearclientesComponent,
     VerpedidodomicilioComponent,
     VerpedidomesasComponent,
-  
+    EstadisticasComponent,
   ],
   imports: [
     CommonModule,

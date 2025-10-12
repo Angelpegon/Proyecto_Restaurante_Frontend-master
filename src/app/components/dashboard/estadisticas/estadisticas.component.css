@@ -26,6 +26,6 @@ table {
 }
 
 .example-button-row {
-  display: flex;
-  width: 90%;
+  display: table-cell;
+  width: 490px;
 }

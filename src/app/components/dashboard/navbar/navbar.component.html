@@ -1,22 +1,19 @@
 <div class="contenedor-padre">
     <mat-toolbar class="barra" color="primary">
-        <mat-toolbar-row>
-            <button (click)="cajon.toggle()" mat-icon-button>
-                <mat-icon>menu</mat-icon>
-            </button>
-            <span>Restaurante</span>
-            <span class="example-spacer"></span>
-            <button mat-button style="margin: 5%;" routerLink="/dashboard">Pedidos</button>
-            <button mat-button style="margin: 5%;"routerLink="/dashboard/domicilios">Domicilios</button>
-            <button mat-button style="margin: 5%;"routerLink="/dashboard/reportes">Gastos</button>
-            <button mat-button style="margin: 5%;"  routerLink="/dashboard/reportes">Creditos</button>
-            <span class="example-spacer"></span>
-
-            <button routerLink="/login" mat-icon-button class="example-icon favorite-icon"
-                aria-label="Example icon-button with heart icon">
-                <mat-icon>logout</mat-icon>
-            </button>
-        </mat-toolbar-row>
+        <button (click)="cajon.toggle()" mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Restaurante</span>
+        <span class="example-spacer"></span>
+        <button mat-button style="margin: 5%;" routerLink="/dashboard">Pedidos</button>
+        <button mat-button style="margin: 5%;" routerLink="/dashboard/domicilios">Domicilios</button>
+        <button mat-button style="margin: 5%;" routerLink="/dashboard/reportes">Gastos</button>
+        <button mat-button style="margin: 5%;" routerLink="/dashboard/reportes">Creditos</button>
+        <span class="example-spacer"></span>
+        <button routerLink="/login" mat-icon-button class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon">
+            <mat-icon>logout</mat-icon>
+        </button>
     </mat-toolbar>
 
     <mat-sidenav-container class="contenido">
@@ -48,8 +45,9 @@
                     </mat-expansion-panel-header>
 
                     <mat-nav-list>
-                        <a mat-list-item href='#'>
-                            Acerca de
+                        <a mat-list-item routerLink="/dashboard/estadisticas">
+                            <mat-icon color="red">calculate</mat-icon>
+                            Estadisticas
                         </a>
                         <a mat-list-item href='#'>
                             Ayuda
@@ -63,4 +61,3 @@
         <router-outlet></router-outlet>
     </mat-sidenav-container>
 </div>
-
