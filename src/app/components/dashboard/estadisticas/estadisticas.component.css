@@ -29,3 +29,36 @@ table {
   display: table-cell;
   width: 490px;
 }
+
+.dashboard {
+  padding: 1rem;
+}
+
+/* KPI */
+.kpi-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.kpi {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.kpi mat-icon {
+  font-size: 40px;
+}
+
+/* Charts */
+.chart-card {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.charts-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
