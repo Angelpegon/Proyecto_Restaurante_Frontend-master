@@ -4,22 +4,28 @@
     <div class="example-spacer"> </div>
   </mat-toolbar>
 
-  <div class="dashboard">
+  <!-- ESTADISTICAS HOY -->
 
-    <!-- KPI CARDS -->
+  <mat-card class="dashboard" style="margin-top: 10px;">
+    <mat-grid-list cols="1" rowHeight="50px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h1>Hoy</h1>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!-- KPI -->
     <div class="kpi-container">
       <mat-card class="kpi">
         <mat-icon>attach_money</mat-icon>
         <div>
           <h2>$350.000</h2>
-          <p>Ventas hoy</p>
+          <p>Ventas</p>
         </div>
       </mat-card>
 
       <mat-card class="kpi">
         <mat-icon>receipt_long</mat-icon>
         <div>
-          <h2>48</h2>
+          <h2>{{totalPedidosHoy}}</h2>
           <p>Pedidos</p>
         </div>
       </mat-card>
@@ -27,18 +33,19 @@
       <mat-card class="kpi">
         <mat-icon>restaurant</mat-icon>
         <div>
-          <h2>Hamburguesa</h2>
-          <p>Plato top</p>
+          <h2>{{totalPedidosMesaHoy}}</h2>
+          <p>En mesa</p>
         </div>
       </mat-card>
 
       <mat-card class="kpi">
         <mat-icon>delivery_dining</mat-icon>
         <div>
-          <h2>16</h2>
+          <h2>{{totalPedidosDomiciliosHoy}}</h2>
           <p>Domicilios</p>
         </div>
       </mat-card>
+
     </div>
 
     <!-- GRÁFICA PRINCIPAL -->
@@ -61,6 +68,71 @@
       </mat-card>
     </div>
 
-  </div>
+  </mat-card>
 
+  <!-- ESTADISTICAS GENERALES -->
+
+  <mat-card class="dashboard" style="margin-top: 10px;">
+    <mat-grid-list cols="1" rowHeight="50px">
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <h1>General</h1>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <!-- KPI CARDS -->
+    <div class="kpi-container">
+      <mat-card class="kpi">
+        <mat-icon>attach_money</mat-icon>
+        <div>
+          <h2>$350.000</h2>
+          <p>Ventas</p>
+        </div>
+      </mat-card>
+
+      <mat-card class="kpi">
+        <mat-icon>receipt_long</mat-icon>
+        <div>
+          <h2>{{totalPedidos}}</h2>
+          <p>Pedidos</p>
+        </div>
+      </mat-card>
+
+      <mat-card class="kpi">
+        <mat-icon>delivery_dining</mat-icon>
+        <div>
+          <h2>{{totalPedidosDomiciliosHoy}}</h2>
+          <p>Domicilios</p>
+        </div>
+      </mat-card>
+
+      <mat-card class="kpi">
+        <mat-icon>restaurant</mat-icon>
+        <div>
+          <h2>Hamburguesa</h2>
+          <p>Plato top</p>
+        </div>
+      </mat-card>
+
+    </div>
+
+    <!-- GRÁFICA PRINCIPAL -->
+    <mat-card class="chart-card">
+      <h3>Ventas de la semana</h3>
+      <canvas id="ventasChart"></canvas>
+    </mat-card>
+
+    <!-- GRÁFICAS SECUNDARIAS -->
+    <div class="charts-row">
+      <mat-card class="chart-card">
+        <h3>Platos más vendidos</h3>
+        <canvas id="platosChart"></canvas>
+      </mat-card>
+
+      <mat-card class="chart-card">
+        <h3>Horas pico</h3>
+        <p>12:00 PM – 2:00 PM</p>
+        <p>7:00 PM – 9:00 PM</p>
+      </mat-card>
+    </div>
+
+  </mat-card>
 </div>
