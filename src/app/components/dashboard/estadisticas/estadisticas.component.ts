@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import Chart from 'chart.js/auto';
+import { PedidoService } from 'src/app/services/pedido/pedido.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -8,10 +9,16 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./estadisticas.component.css']
 })
 export class EstadisticasComponent implements OnInit {
+  totalPedidosHoy: any;
+  totalPedidosDomiciliosHoy: any;
+  totalPedidos: any;
+  totalPedidosMesaHoy: any;
 
   isMobile = false;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    public breakpointObserver: BreakpointObserver,
+    public pedidoService: PedidoService) {
     this.breakpointObserver.observe([Breakpoints.Handset])
       .subscribe(result => {
         this.isMobile = result.matches;
@@ -19,9 +26,43 @@ export class EstadisticasComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.cargarTotalPedidosHoy();
+    this.cargarTotalPedidosDomiciliosHoy();
+    this.cargarTotalPedidosMesaHoy();
+    this.cargarTotalPedidos();
     this.crearGraficaVentas();
     this.crearGraficaPlatos();
   }
+
+  cargarTotalPedidos(): void {
+    this.pedidoService.totalPedidos().subscribe(resp => {
+      this.totalPedidos = resp;
+    },
+      error => { console.error(error) }
+    );
+  }
+  cargarTotalPedidosDomiciliosHoy(): void {
+    this.pedidoService.totalPedidosDomiciliosHoy().subscribe(resp => {
+      this.totalPedidosDomiciliosHoy = resp;
+    },
+      error => { console.error(error) }
+    );
+  }
+  cargarTotalPedidosMesaHoy(): void {
+    this.pedidoService.totalPedidosMesaHoy().subscribe(resp => {
+      this.totalPedidosMesaHoy = resp;
+    },
+      error => { console.error(error) }
+    );
+  }
+  cargarTotalPedidosHoy(): void {
+    this.pedidoService.totalPedidosHoy().subscribe(resp => {
+      this.totalPedidosHoy = resp;
+    },
+      error => { console.error(error) }
+    );
+  }
+
   crearGraficaVentas() {
     new Chart('ventasChart', {
       type: 'line',

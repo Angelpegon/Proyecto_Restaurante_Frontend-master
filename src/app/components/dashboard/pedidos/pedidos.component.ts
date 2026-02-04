@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PedidoService } from 'src/app/services/pedido/pedido.service';
 import { VerpedidoComponent } from '../inicio/verpedido/verpedido.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Pedidos } from 'src/app/interfaces/pedidos';
 
 @Component({
   selector: 'app-pedidos',
@@ -18,7 +19,10 @@ export class PedidosComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   buscarForm: FormGroup;
-  pedidos: any;
+  pedidos: Pedidos[] = [];
+  pageSize = 10;
+  pageIndex = 0;
+  totalRegistros = 0;
   displayedColumns: string[] = ['id', 'fecha', 'options', 'estado'];
   dataSource = new MatTableDataSource<any>;
 
@@ -38,18 +42,24 @@ export class PedidosComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.pedidoService.getAllPedidos().subscribe(resp => {
-      this.pedidos = resp;
-      this.cargarPedidos();
-    },
-      error => { console.error(error) }
-    );
-
+    this.cargarPedidos();
   }
+
   cargarPedidos() {
-    this.dataSource = new MatTableDataSource(this.pedidos);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.pedidoService
+      .getAllPedidos(this.pageIndex, this.pageSize)
+      .subscribe(resp => {
+        this.pedidos = resp.content;
+        this.totalRegistros = resp.totalElements;
+        this.dataSource = new MatTableDataSource(this.pedidos);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      });
+  }
+  cambiarPagina(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.cargarPedidos();
   }
   buscarPedidos() {
     class Fechas {

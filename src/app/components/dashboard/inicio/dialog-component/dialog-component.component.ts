@@ -40,17 +40,6 @@ export class DialogComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pedidoService.getAllPedidos().subscribe(resp => {
-      this.pedidos = resp;
-      this.cargarPedidos();
-    },
-      error => { console.error(error) }
-    );
-  }
-  cargarPedidos() {
-    this.dataSource = new MatTableDataSource(this.pedidos);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   cancelar() {
