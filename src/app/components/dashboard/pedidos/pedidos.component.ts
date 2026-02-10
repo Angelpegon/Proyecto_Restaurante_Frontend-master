@@ -6,7 +6,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PedidoService } from 'src/app/services/pedido/pedido.service';
 import { VerpedidoComponent } from '../inicio/verpedido/verpedido.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Pedidos } from 'src/app/interfaces/pedidos';
 
 @Component({
   selector: 'app-pedidos',
@@ -19,7 +18,7 @@ export class PedidosComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   buscarForm: FormGroup;
-  pedidos: Pedidos[] = [];
+  pedidos: any[]= [];
   pageSize = 10;
   pageIndex = 0;
   totalRegistros = 0;
@@ -47,9 +46,9 @@ export class PedidosComponent implements OnInit {
 
   cargarPedidos() {
     this.pedidoService
-      .getAllPedidos(this.pageIndex, this.pageSize)
+      .getAllPedidos()
       .subscribe(resp => {
-        this.pedidos = resp.content;
+        this.pedidos = resp;
         this.totalRegistros = resp.totalElements;
         this.dataSource = new MatTableDataSource(this.pedidos);
         this.dataSource.paginator = this.paginator;

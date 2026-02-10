@@ -25,14 +25,14 @@ export class InicioComponent implements OnInit {
   pedidos: any;
   displayedColumns: string[] = ['id', 'fecha', 'mesa', 'mesero', 'options', 'estado'];
   dataSource = new MatTableDataSource<any>;
- 
+
   constructor(
     public fb: FormBuilder,
     public pedidoService: PedidoService,
     public dialog: MatDialog,
   ) {
     this.buscarForm = this.fb.group({
-      text : ['', Validators.required],
+      text: ['', Validators.required],
     })
   }
 
@@ -80,7 +80,7 @@ export class InicioComponent implements OnInit {
       }
     })
   }
- 
+
   buscarPedidos() {
     this.pedidoService.buscarPedidosporText(this.buscarForm.value).subscribe(resp => {
       this.pedidos = resp;

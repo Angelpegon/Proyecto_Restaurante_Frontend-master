@@ -2,7 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pages } from 'src/app/interfaces/pages';
-import { Pedidos } from 'src/app/interfaces/pedidos';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +11,8 @@ export class PedidoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllPedidos(page: number, size: number): Observable<Pages<Pedidos>> {
-    const params = new HttpParams()
-      .set('page', page)
-      .set('size', size);
-
-    return this.httpClient.get<Pages<Pedidos>>(this.API_SERVER, { params });
+  public getAllPedidos(): Observable<any> {
+    return this.httpClient.get(this.API_SERVER);
   }
   public finalizarPedido(pedido: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER + "finalizarPedido", pedido);
