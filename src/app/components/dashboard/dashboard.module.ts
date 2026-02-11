@@ -27,8 +27,6 @@ import { VerpedidodomicilioComponent } from './inicio/verpedido/verpedidodomicil
 import { VerpedidomesasComponent } from './inicio/verpedido/verpedidomesas/verpedidomesas.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
-
-
 @NgModule({
   declarations: [
     DashboardComponent,

@@ -16,22 +16,25 @@ import { CreartipoComponent } from './tipo/creartipo/creartipo.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 const routes: Routes = [
-  {path:'',component: DashboardComponent,children:[
-    {path:'',component:InicioComponent},
-    {path:'domicilios',component:DomiciliosComponent},
-    {path:'reportes',component:ReportesComponent},
-    {path:'carta',component:CartaComponent},
-    {path:'crearplato',component:CrearplatoComponent},
-    {path:'mesero',component:MeseroComponent},
-    {path:'crearmesero',component:CrearmeseroComponent},
-    {path:'crearpedido',component:CrearpedidoComponent},
-    {path:'agregarproductos',component:AgregarproductosComponent},
-    {path:'pedidos',component:PedidosComponent},
-    {path:'tipo',component:TipoComponent},
-    {path:'creartipo',component:CreartipoComponent},
-    {path:'estadisticas',component:EstadisticasComponent},
-
-  ]}
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path: '', component: InicioComponent },
+      { path: 'domicilios', component: DomiciliosComponent },
+      { path: 'reportes', component: ReportesComponent },
+      { path: 'carta', component: CartaComponent },
+      { path: 'crearplato', component: CrearplatoComponent },
+      { path: 'mesero', component: MeseroComponent },
+      { path: 'crearmesero', component: CrearmeseroComponent },
+      { path: 'crearpedido', component: CrearpedidoComponent },
+      { path: 'agregarproductos', component: AgregarproductosComponent },
+      { path: 'pedidos', component: PedidosComponent },
+      { path: 'tipo', component: TipoComponent },
+      { path: 'creartipo', component: CreartipoComponent },
+      { path: 'estadisticas', component: EstadisticasComponent },
+    ]
+  }
 ];
 
 @NgModule({
