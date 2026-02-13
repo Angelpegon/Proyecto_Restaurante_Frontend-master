@@ -11,6 +11,7 @@ import { MeseroService } from 'src/app/services/mesero/mesero.service';
 import { PlatosxpedidoService } from 'src/app/services/platosxpedido/platosxpedido.service';
 import { TipodepedidoService } from 'src/app/services/tipodepedido/tipodepedido.service';
 import { CrearclientesComponent } from '../../clientes/crearclientes/crearclientes.component';
+import { PedidoService } from 'src/app/services/pedido/pedido.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ import { CrearclientesComponent } from '../../clientes/crearclientes/crearclient
 
 export class CrearpedidoComponent implements OnInit {
   listPlatosxPedido: PlatosxPedido[] = [];
+  tiposPedido: string[] = [];
   platosxpedidoForm: FormGroup;
   pedidoForm: FormGroup;
   clientesForm: FormGroup;
@@ -42,7 +44,9 @@ export class CrearpedidoComponent implements OnInit {
     public clientesService: ClientesService,
     public platosxpedidoService: PlatosxpedidoService,
     public tiposdepedidoService: TipodepedidoService,
+    public pedidosService: PedidoService,
     private _snackBar: MatSnackBar,
+
     public dialog: MatDialog,
   ) {
     this.searchForm = this.fb.group({
@@ -127,7 +131,8 @@ export class CrearpedidoComponent implements OnInit {
     pedido.pedidos = this.pedidoForm.value;
     pedido.pedidos.cliente = this.clientesForm.value;
     pedido.platosxPedido = this.listPlatosxPedido;
-    this.platosxpedidoService.savePedido(pedido).subscribe(resp => {
+    console.log(pedido);
+    this.pedidosService.savePedido(pedido).subscribe(resp => {
       this.pedidoForm.setErrors(null);
       this._snackBar.open('Pedido agregado con exito', '', {
         duration: 2000,

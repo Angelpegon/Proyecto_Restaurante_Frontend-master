@@ -14,6 +14,12 @@ export class PedidoService {
   public getAllPedidos(): Observable<any> {
     return this.httpClient.get(this.API_SERVER);
   }
+  public savePedido(pedido: any): Observable<any> {
+    return this.httpClient.post(this.API_SERVER + "savePedido", pedido);
+  }
+   public addPlatosxPedido(pedido: any): Observable<any> {
+    return this.httpClient.post(this.API_SERVER + "addPlatosxPedido", pedido );
+  }
   public finalizarPedido(pedido: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER + "finalizarPedido", pedido);
   }

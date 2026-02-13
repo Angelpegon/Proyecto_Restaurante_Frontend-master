@@ -8,8 +8,8 @@
                 <mat-grid-tile [colspan]="2" [rowspan]="2">
                     <mat-form-field appearance="fill">
                         <mat-label>Tipo de Pedido</mat-label>
-                        <mat-select name="tipodepedido" id="tipodepedido" formControlName="tipodepedido" required>
-                            <mat-option [value]="item" *ngFor="let item of tiposdepedidos">{{item.nombre}}</mat-option>
+                        <mat-select name="tipodepedido" formControlName="tipodepedido" required>
+                            <mat-option [value]="item" *ngFor="let item of tiposdepedidos" [value]="item">{{item}}</mat-option>
                         </mat-select>
                     </mat-form-field>
                 </mat-grid-tile>

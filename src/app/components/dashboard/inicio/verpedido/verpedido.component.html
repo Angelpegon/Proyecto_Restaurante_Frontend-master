@@ -15,14 +15,14 @@
     <mat-grid-tile [colspan]="1" [rowspan]="1">
         <mat-card appearance="fill" class="ancho">
             <mat-card-content *ngFor="let item of pedidos">
-                <strong>Estado:</strong> {{item.estado.nombre}}</mat-card-content>
+                <strong>Estado:</strong> {{item.estado}}</mat-card-content>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
         <mat-card appearance="fill" class="ancho">
             <mat-card-content *ngFor="let item of pedidos">
                 <strong>Tipo:</strong>
-                {{item.tipodepedido.nombre}}</mat-card-content>
+                {{item.tipodepedido}}</mat-card-content>
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">

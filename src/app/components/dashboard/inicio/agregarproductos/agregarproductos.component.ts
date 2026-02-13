@@ -10,6 +10,7 @@ import { PlatosxpedidoService } from 'src/app/services/platosxpedido/platosxpedi
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { InicioComponent } from '../inicio.component';
 import { VerpedidoComponent } from '../verpedido/verpedido.component';
+import { PedidoService } from 'src/app/services/pedido/pedido.service';
 
 @Component({
   selector: 'app-agregarproductos',
@@ -32,6 +33,7 @@ export class AgregarproductosComponent implements OnInit {
     public mesasService: MesaService,
     public meserosService: MeseroService,
     public menuService: MenuService,
+    public pedidoService: PedidoService,
     public platosxpedidoService: PlatosxpedidoService,
     private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<InicioComponent>,
@@ -93,12 +95,12 @@ export class AgregarproductosComponent implements OnInit {
     class Pedido {
       pedidos: any;
       platosxPedido: any;
-    } 
+    }
     const pedido = new Pedido();
-    pedido.pedidos= {};
+    pedido.pedidos = {};
     pedido.pedidos.id = this.id;
     pedido.platosxPedido = this.listPlatosxPedido;
-    this.platosxpedidoService.addPlatosxPedido(pedido).subscribe(resp => {
+    this.pedidoService.addPlatosxPedido(pedido).subscribe(resp => {
       this._snackBar.open('Producto agregado con exito', '', {
         duration: 500,
         horizontalPosition: 'center',
@@ -109,11 +111,11 @@ export class AgregarproductosComponent implements OnInit {
       error => { console.error(error) }
     )
   }
-  fakeLoading(){
+  fakeLoading() {
     setTimeout(() => {
       //Redireccionamos al dashboard
       window.location.reload();
-   }, 500);
- }
+    }, 500);
+  }
 
 }

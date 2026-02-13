@@ -22,12 +22,6 @@ export class PlatosxpedidoService {
   agregarPlatoxPedido(platoxpedido: PlatosxPedido) {
     this.listPlatosxPedido.push(platoxpedido);
   }
-  public savePedido(pedido: any): Observable<any> {
-    return this.httpClient.post(this.API_SERVER + "savePedido", pedido);
-  }
-  public addPlatosxPedido(pedido: any): Observable<any> {
-    return this.httpClient.post(this.API_SERVER + "addPlatosxPedido", pedido );
-  }
   public editPedido(pedido: any): Observable<any> {
     return this.httpClient.post(this.API_SERVER + "editPedido", pedido);
   }

@@ -10,6 +10,7 @@ export class TipodepedidoService {
   constructor(private httpClient: HttpClient) { }
 
   public getAllTiposdePedido(): Observable<any> {
-    return this.httpClient.get(this.API_SERVER);
+    return this.httpClient.get<string[]>(this.API_SERVER);
   }
+
 }
