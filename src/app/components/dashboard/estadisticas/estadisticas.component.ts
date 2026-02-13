@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import Chart from 'chart.js/auto';
 import { PedidoService } from 'src/app/services/pedido/pedido.service';
+import { MovimientosService } from 'src/app/services/movimientos/movimientos.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -13,12 +14,14 @@ export class EstadisticasComponent implements OnInit {
   totalPedidosDomiciliosHoy: any;
   totalPedidos: any;
   totalPedidosMesaHoy: any;
+  totalIngresosHoy: any;
 
   isMobile = false;
 
   constructor(
     public breakpointObserver: BreakpointObserver,
-    public pedidoService: PedidoService) {
+    public pedidoService: PedidoService,
+    public movimientosService: MovimientosService) {
     this.breakpointObserver.observe([Breakpoints.Handset])
       .subscribe(result => {
         this.isMobile = result.matches;
@@ -32,6 +35,7 @@ export class EstadisticasComponent implements OnInit {
     this.cargarTotalPedidos();
     this.crearGraficaVentas();
     this.crearGraficaPlatos();
+    this.cargarTotalIngresosHoy();
   }
 
   cargarTotalPedidos(): void {
@@ -44,6 +48,13 @@ export class EstadisticasComponent implements OnInit {
   cargarTotalPedidosDomiciliosHoy(): void {
     this.pedidoService.totalPedidosDomiciliosHoy().subscribe(resp => {
       this.totalPedidosDomiciliosHoy = resp;
+    },
+      error => { console.error(error) }
+    );
+  }
+  cargarTotalIngresosHoy(): void {
+    this.movimientosService.totalIngresosHoy().subscribe(resp => {
+      this.totalIngresosHoy = new Intl.NumberFormat('es-CO').format(resp);
     },
       error => { console.error(error) }
     );

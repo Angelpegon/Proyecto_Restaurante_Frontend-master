@@ -7,6 +7,9 @@ import { Pages } from 'src/app/interfaces/pages';
   providedIn: 'root'
 })
 export class PedidoService {
+  totalIngresosHoy() {
+    throw new Error('Method not implemented.');
+  }
   private API_SERVER = "http://localhost:8080/pedidos/";
 
   constructor(private httpClient: HttpClient) { }
